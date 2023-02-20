@@ -2,6 +2,8 @@
 
 
 # Internship 
+![IMG_20230220_072238](https://user-images.githubusercontent.com/125706026/219992988-4e8070a8-01c4-4917-99e0-8735b169705b.jpg)
+
 
 ## Solo learn
 
