@@ -23,7 +23,7 @@ int main()
      int n;
      printf("ENTER THE NUMBER \n");
      scanf("%d",&n);
-     printf("%p\n",add(n));
+     printf("%d\n",add(n));
 
 
 
