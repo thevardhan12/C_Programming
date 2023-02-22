@@ -1,6 +1,6 @@
 //Write a program to count the occurrences of a number in a matrix.
 #include<stdio.h>
-int occurence(int *,int);
+int occurence(int *,int,int);
 int main()
 {
     int size,n;
@@ -15,15 +15,21 @@ int main()
     {
         scanf("%d",&arr[i]);
     }
-    occurence(arr,size,n);
+    printf("%d\n",occurence(arr,size,n));
     
 }
-int occurence(int *,int sz,int n)
+int occurence(int *arr,int sz,int n)
 {
-    for (int  i = 0; i < size; i++)
+    int count=0;
+    for (int  i = 0; i < sz; i++)
     {
-        
+        if(arr[i]==n)
+        {
+            count++;
+        }
+
         /* code */
     }
+    return count;
     
 }
