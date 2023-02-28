@@ -18,8 +18,8 @@ char *abbreviate(char *s)
     int size=10;
     char *temp=NULL;
     char *str=calloc(size,sizeof(char));
-    for (int  i = 0;str[i]!=0 ; i++)
-    {
+    //for (int  i = 0;str[i]!=0 ; i++)
+    //{
         for(int j=0;s[j]!=0;j++)
         {
             if(s[j]==' ')
@@ -33,17 +33,17 @@ char *abbreviate(char *s)
            
 
         }
-        }
+    }
 
         
         
-    }
+}
     
 
 
 char *word(char *end)
 {
-    printf("%s",end);
+    //printf("%s",end);
 
 }
 
