@@ -15,31 +15,26 @@ int main()
     {
         printf("%d",arr[i]);
     }*/
-    printf ("%lf",median(arr,size));
+    printf ("%g\n",median(arr,size));
 }
 double median(int *arr,int size)
 {
-    int i,j,temp;
-    float median;
-     for(i = 0; i < size; i++)                                       //loop to sort the elements of array2 in ascending order 
+    int mean=0,sum=0;
+    float var;
+    for (int  i = 0; i < size; i++)
     {
-        for(j = i + 1; j < size; j++)
-        {
-            if(arr[i] > arr[j])                            //condition to compare the adjacent elements of array2
-            {
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
+        mean=mean+arr[i];
+        
     }
-    if(size % 2 != 0)                                              //condition to check the size of array2 is even or odd
+    mean=mean/size;
+    for (int  i = 0; i < size; i++)
     {
-        median = arr[size/2];                                  //expression to find the median of array2 if size of array2 is odd
+        arr[i]=arr[i]-mean;
+        arr[i]=arr[i]*arr[i];
+        sum=sum+arr[i];
+        
     }
-    else
-    {
-        median = (float)(arr[size/2] + arr[size/2 - 1])/2;    //expression to find the median of array2 if size of array2 is even
-    }
-    return median;
+        return (float)sum/size;
+   
+    
 }
