@@ -25,7 +25,7 @@ char *abbreviate(char *s)
             if(s[j]==' ')
             {
                 temp=s+j;
-                str[i]=word(temp);
+                str[]=word(temp);
                 break;
 
             }
@@ -33,7 +33,7 @@ char *abbreviate(char *s)
            
 
         }
-    }
+    
 
         
         
