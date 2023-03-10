@@ -1,7 +1,4 @@
-void greetings();
+#include<stdio.h>
+void coustmer(char*);
 void community_list();
-void select_community()
-void community_list();
-float community_A();
-float community_B();
-float community_C();
+float community_A(float unpaid);

@@ -1,37 +1,34 @@
 #include<stdio.h>
 #include"a.h"
-int ED_charge=25;
-int Fixed_charge=60;
-int surcharge;
-float Total_amount;
-float per_unit_charge;
-void greetings()
-{
-    printf("Welcome to Electrical Tarrif Calculation \n");
-}
 void community_list()
 {
     printf(" 1.Community-A\n 2.Community-B\n 3.Community-C\n");
+    return 0;
 }
 void select_community()
 {
-    printf("Select your communnity\n");
+    
     void community_list();
     int option;
+    printf("Select your communnity\n");
     scanf("%d",&option);
     switch(option)
     {
         case 1:
-        printf("The total payble amount is %f\n",community_A());
+        float amtA= community_A();
+        return amtA;
         break;
         case 2:
-        printf("The total payble amount is %f\n",community_B());
+        float amtB=community_B();
+        return amtB;
         break;
         case 3:
-        printf("The total payble amount is %f\n",community_C());
+        float amtC=community_C();
+        return amtC;
         break;
         default:
         printf("Select A proper community\n");
+        return 0;
     }
 }
 float community_A()
