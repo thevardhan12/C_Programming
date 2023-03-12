@@ -1,4 +1,7 @@
 #include<stdio.h>
+#include"a.h"
+#define ED_charge 25
+#define Fixed_charge 60
 void coustmer(char *arr)
 {
     scanf("%s[^\n]",arr);
@@ -7,13 +10,65 @@ void community_list()
 {
     printf(" 1.Community-A\n 2.Community-B\n 3.Community-C\n");
 }
-float community_A(float unpaid)
+float community_A(float unpaid,float c_charge)
 {
     float units;
     int coustmer_charge;
     printf("Enter a Units of Electricty used in a month \n");
     scanf("%f",&units);
-    float c_charge=current_charge(units);
+    c_charge=current_charge(units);
+    if(unpaid<200&&unpaid>0)
+    {
+        float surge=0.25*unpaid;
+        return surge+c_charge;
+    }
+    else if(unpaid<500&&unpaid>=200)
+    {
+        float surge=0.35*unpaid;
+        return surge+c_charge;
+    }
+    else
+    {
+        float surge=0.50*unpaid;
+        return surge+c_charge;
+    }
+    
+
+
+}
+float community_B(float unpaid,float c_charge)
+{
+    float units;
+    int coustmer_charge;
+    printf("Enter a Units of Electricty used in a month \n");
+    scanf("%f",&units);
+    c_charge=current_charge(units);
+    if(unpaid<200&&unpaid>0)
+    {
+        float surge=0.25*unpaid;
+        return surge+c_charge;
+    }
+    else if(unpaid<500&&unpaid>=200)
+    {
+        float surge=0.35*unpaid;
+        return surge+c_charge;
+    }
+    else
+    {
+        float surge=0.50*unpaid;
+        return surge+c_charge;
+    }
+    
+
+
+}
+float community_C(float unpaid,float c_charge)
+{
+    float units;
+    int coustmer_charge;
+    printf("Enter a Units of Electricty used in a month \n");
+    scanf("%f",&units);
+    c_charge=current_charge(units);
     if(unpaid<200&&unpaid>0)
     {
         float surge=0.25*unpaid;
@@ -45,4 +100,8 @@ float current_charge(float units)
         Total_Bill=coustmer_charge+Energy_cons_charge+ED_charge+Fixed_charge;
         return Total_Bill;
     }
+}
+void print_total(float Total,char *name)
+{
+    printf("The total amount to be paid by %s\n is %f\n",name,Total);
 }
