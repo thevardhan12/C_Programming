@@ -1,1 +1,1 @@
-# Electrical Tarrif
+# MINI_PROJECTS
