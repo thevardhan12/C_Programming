@@ -8,7 +8,7 @@ int main()
     float units,per_unit_charge;
     float unpaid;
     float c_charge;
-    printf("    \tWelcome to\nElectrical Tarrif Calculations\n");
+    printf("    \tWelcome to\nElectricity Tarrif Calculations\n");
     char arr[50];
     do
     {
