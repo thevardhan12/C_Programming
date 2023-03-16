@@ -1,6 +1,6 @@
 
 #include<stdio.h>
-#include "a.h"
+#include "main.h"
 int main()
 {
     float Total;
