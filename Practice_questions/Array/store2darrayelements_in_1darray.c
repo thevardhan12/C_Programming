@@ -21,22 +21,18 @@ int main()
         }
         printf("\n");
     }
+    int k=0;
     int _1_D_array[ROW*COL];
     for (int  i = 0; i < ROW; i++)
     {
         for (int  j = 0; j < COL; j++)
         {
-            for (int k = i+j; k < ROW*COL; k++)
-            {
-                _1_D_array[k]=arr[i][j];
-                break;
-            }
-            
+                _1_D_array[k++]=arr[i][j];    
         }
     }
     for (int i = 0; i < ROW*COL; i++)
     {
         printf("%2d",_1_D_array[i]);
     }
-
+    printf("\n");
 }
