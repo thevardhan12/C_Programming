@@ -7,6 +7,11 @@ int main()
 }
 void swap(int *p,int *p2)
 {
+    p=*p+*p2;
+    printf("%p",p);
+    printf("%d",*p);
+
+
 
 
 }
