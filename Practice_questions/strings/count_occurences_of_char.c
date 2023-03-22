@@ -13,7 +13,7 @@ int main()
         if(ch!=' ')
         {
             count=0;
-            for (int  j=0;str[i]!=0; j++)
+            for (int  j=0;str[j]!=0; j++)
             {
                 if(ch==str[j])
                 {
