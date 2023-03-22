@@ -73,3 +73,4 @@ Status open_files(EncodeInfo *encInfo)
     // No failure return e_success
     return e_success;
 }
+
