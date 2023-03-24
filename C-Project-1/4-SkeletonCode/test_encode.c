@@ -12,13 +12,19 @@ int main(int argc,char *argv[])
         if(read_and_validate_encode_args(argv,&_encinfo)==e_success);
         {
             printf("Read and validate is successfull completed\n");
-
+            if(do_encoding(&_encinfo)==e_success)
+            {
+                printf("encoding is done succesfully\n");
+            }
+            else
+            {
+                printf("Error\n");
+            }
         }
-    }
+    }       
     else if (check_operation_type(argv)==e_decode)
     {
-        printf("select Decode\n");
-
+        printf("selected Decode\n");
     }
     else
     {
@@ -29,12 +35,12 @@ int main(int argc,char *argv[])
 }
 OperationType check_operation_type(char *argv[])
 {
-    if(strcmp((argv[1],"-e")==0))
+    if(!strcmp(argv[1],"-e"))
     {
         return e_encode;
 
     }
-    else if(strcmp((argv[1],"-d")==0))
+    else if(!strcmp(argv[1],"-d"))
     {
         return e_decode;
     }
@@ -43,36 +49,8 @@ OperationType check_operation_type(char *argv[])
         return e_unsupported;
     }
 }
-Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo)
-{
-    int count=0;
-    for (int  i = 0; argv[i]!=0; i++)
-    {
-        count++;
-    }
-    if(count>=4)
-    {
-        if(strmp(strstr(argv[2],"."),".bmp")==0)
-        {
-            printf("pass the correct file\n");
-        }
-        else
-        {
-            return e_success;
-        }
-        if(strmp(strstr(argv[3],"."),".txt")==0)
-        {
-            printf("pass the correct file\n");
-        }
-        else
-        {
-            return e_success;
-            
-        }
 
-    }
     
     
 
-}
 

@@ -17,7 +17,7 @@ int main()
 void binary(int num)
 {
      int mask;
-     for(int i=15;i>=0;i--)
+     for(int i=31;i>=0;i--)
      {
 	  mask=i<<i;
 	  if(num&mask)
