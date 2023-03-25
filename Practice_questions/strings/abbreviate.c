@@ -3,48 +3,28 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-char *abbreviate(char*);
-char *word(char *end);
+void abbrevative(char *);
 int main()
 {
-    char str[100];
-    printf("Enter a string\n");
-    scanf("%[^\n]",str);
-    char *abb=abbreviate(str);
-    return 0;
+    char text[100];
+    printf("Enter a text \n");
+    scanf("%[^\n]",text);
+    printf("%2c",*(text+0));
+    abbrevative(text);
+
 }
-char *abbreviate(char *s)
+void abbrevative(char *str)
 {
-    int size=10;
-    char *temp=NULL;
-    char *str=calloc(size,sizeof(char));
-    //for (int  i = 0;str[i]!=0 ; i++)
-    //{
-        for(int j=0;s[j]!=0;j++)
+    int i;
+    for ( i = 0; str[i]!=0; i++)
+    {
+        if(str[i-1]==' ')
         {
-            if(s[j]==' ')
-            {
-                temp=s+j;
-                str[]=word(temp);
-                break;
-
-            }
-
-           
-
+            printf("%2c",*(str+i));
         }
-    
-
+            
         
-        
-}
+    }
+    printf("\n");
     
-
-
-char *word(char *end)
-{
-    //printf("%s",end);
-
 }
-
-
