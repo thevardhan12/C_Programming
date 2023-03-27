@@ -148,7 +148,7 @@ Status encode_secret_file_size(long file_size, EncodeInfo *encInfo)
     else
     return e_failure;
 }
-Status encode_secret_file_extn( const char *file_extn, EncodeInfo *encInfo)
+Status encode_secret_file_extn(  char *file_extn, EncodeInfo *encInfo)
 {
     if(encode_data_to_image(file_extn,strlen(file_extn),encInfo)==e_success)
     return e_success;
@@ -167,17 +167,18 @@ Status encode_secret_file_ext_size(int size,EncodeInfo *encInfo)
 }
 Status encode_int_to_lsb(int size,EncodeInfo *encInfo)
 {
+    printf("sizeof the file is %d\n",size);
     char str[32];
     fread(str,1,32,encInfo->fptr_src_image);
     uint mask=1<<31;
     for (int  i = 0; i < 32; i++)
     {
-        str[i]=(str[i]&0xfe)|((size&mask>>(31-i)));
+        str[i]=(str[i]&0xfe)|((size&mask)>>(31-i));
         mask=mask>>1;
     }
     fwrite(str,1,32,encInfo->fptr_stego_image);
 }
-Status encode_magic_string(const char *magic_string, EncodeInfo *encInfo)
+Status encode_magic_string( char *magic_string, EncodeInfo *encInfo)
 {
     
     if(encode_data_to_image(magic_string,strlen(magic_string),encInfo)==e_success)
@@ -185,7 +186,7 @@ Status encode_magic_string(const char *magic_string, EncodeInfo *encInfo)
     else
     return e_failure;
 }
-Status encode_data_to_image(char *data, int size,EncodeInfo *encInfo)
+Status encode_data_to_image( char *data, int size,EncodeInfo *encInfo)
 {
     for (int  i = 0; i < size; i++)
     {
