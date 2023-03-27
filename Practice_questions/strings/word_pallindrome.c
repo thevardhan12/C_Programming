@@ -29,7 +29,6 @@ int pallindrome(char *str,int j)
         if(str[i]==str[j])
         {
             flag=1;
-
         }
         else
         {
