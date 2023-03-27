@@ -37,4 +37,9 @@ typedef struct _DecodeInfo
     FILE *fptr_stego_image;
 
 }decodeInfo;
-Status read_and_validate_decode_args(char *argv[], decodeInfo*encInfo);
+Status read_and_validate_decode_args(char *argv[], decodeInfo *decInfo);
+Status do_decoding(decodeInfo *decinfo);
+Status open_files(decodeInfo *decinfo);
+Status decode_magic_string(decodeInfo *decinfo);
+
+
