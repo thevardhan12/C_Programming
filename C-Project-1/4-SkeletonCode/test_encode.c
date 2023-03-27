@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "encode.h"
 #include "types.h"
+#include "decode.h"
 #include <string.h>
 
 int main(int argc,char *argv[])
@@ -15,6 +16,7 @@ int main(int argc,char *argv[])
             if(do_encoding(&_encinfo)==e_success)
             {
                 printf("encoding is done succesfully\n");
+                
             }
             else
             {
@@ -25,6 +27,25 @@ int main(int argc,char *argv[])
     else if (check_operation_type(argv)==e_decode)
     {
         printf("selected Decode\n");
+        decodeInfo _decodeInfo;
+        if(read_and_validate_decode_args(argv,&_decodeInfo)==e_success);
+        {
+            printf("Read and validate is successfull completed\n");
+            if(do_decoding(&_decodeInfo)==e_success)
+            {
+                printf("decoding is done succesfully\n");
+
+            }
+            else
+            {
+                printf("Error\n");
+
+            }
+
+
+
+
+        }
     }
     else
     {

@@ -38,6 +38,7 @@ typedef struct _EncodeInfo
 } EncodeInfo;
 
 
+
 /* Encoding function prototype */
 
 /* Check operation type */
@@ -65,10 +66,10 @@ uint get_file_size(FILE *fptr);
 Status copy_bmp_header(FILE *fptr_src_image, FILE *fptr_dest_image);
 
 /* Store Magic String */
-Status encode_magic_string(const char *magic_string, EncodeInfo *encInfo);
+Status encode_magic_string( char *magic_string, EncodeInfo *encInfo);
 
 /* Encode secret file extenstion */
-Status encode_secret_file_extn(const char *file_extn, EncodeInfo *encInfo);
+Status encode_secret_file_extn( char *file_extn, EncodeInfo *encInfo);
 
 /* Encode secret file size */
 Status encode_secret_file_size(long file_size, EncodeInfo *encInfo);
