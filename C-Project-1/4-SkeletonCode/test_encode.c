@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "encode.h"
 #include "types.h"
-#include "decode.h"
+//#include "decode.h"
 #include <string.h>
 
 int main(int argc,char *argv[])
@@ -10,7 +10,7 @@ int main(int argc,char *argv[])
     {
         printf("selected Encode\n");
         EncodeInfo _encinfo;
-        if(read_and_validate_encode_args(argv,&_encinfo)==e_success);
+        if(read_and_validate_encode_args(argc,argv,&_encinfo)==e_success);
         {
             printf("Read and validate is successfull completed\n");
             if(do_encoding(&_encinfo)==e_success)
@@ -27,7 +27,7 @@ int main(int argc,char *argv[])
     else if (check_operation_type(argv)==e_decode)
     {
         printf("selected Decode\n");
-        decodeInfo _decodeInfo;
+        /*decodeInfo _decodeInfo;
         if(read_and_validate_decode_args(argv,&_decodeInfo)==e_success);
         {
             printf("Read and validate is successfull completed\n");
@@ -45,7 +45,7 @@ int main(int argc,char *argv[])
 
 
 
-        }
+        }*/
     }
     else
     {

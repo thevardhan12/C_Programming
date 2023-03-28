@@ -6,18 +6,14 @@
 //int width,length;
 
 /* Function Definitions */
-Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo)
+Status read_and_validate_encode_args(int argc ,char *argv[], EncodeInfo *encInfo)
 {
-    int count=0;
-    for (int  i = 0; argv[i]!=0; i++)
-    {
-        count++;
-    }
-    if(count>=4)
+    
+    if(argc>=4)
     {
         if(strcmp(strstr(argv[2],"."),".bmp")==0)
         {
-            strcpy(encInfo->src_image_fname,argv[2]);
+            encInfo->src_image_fname=argv[2];
 
             
         }
@@ -25,12 +21,16 @@ Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo)
         {
             return e_failure;
         }
-        if(argv[3]!=NULL)
+        if(argv[3]!= NULL)
         {
-            strcpy(encInfo->secret_fname,argv[3]);
-            char *ext=strchr(encInfo->extn_secret_file,'.');
-            strcpy(encInfo->extn_secret_file,ext);
-           
+            char *ext;
+            if((ext=strchr(argv[3],'.'))!= NULL)
+            {
+                encInfo->secret_fname=argv[3];
+                strcpy(encInfo->extn_secret_file,ext);
+
+            }
+            
             
         }
         else
@@ -54,7 +54,7 @@ Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo)
 }
 Status do_encoding(EncodeInfo *encInfo)
 {
-    if(open_files(encInfo)==e_success)
+  if(open_files(encInfo)==e_success)
     {
         printf("Files are opened succesfully\n");
         if(check_capacity(encInfo)==e_success)
@@ -82,6 +82,7 @@ Status do_encoding(EncodeInfo *encInfo)
                                         if(copy_remaining_img_data(encInfo)==e_success)
                                         {
                                             printf("remaining data is sucessfully copied\n");
+                                            return e_success;
                                         }
                                     }
                                 }
@@ -110,6 +111,7 @@ Status do_encoding(EncodeInfo *encInfo)
     else
     {
         printf("Encoding is failed\n");
+        return e_failure;
 
     }
 
@@ -177,6 +179,7 @@ Status encode_int_to_lsb(int size,EncodeInfo *encInfo)
         mask=mask>>1;
     }
     fwrite(str,1,32,encInfo->fptr_stego_image);
+    return e_success;
 }
 Status encode_magic_string( char *magic_string, EncodeInfo *encInfo)
 {
