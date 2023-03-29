@@ -47,7 +47,7 @@ Status read_and_validate_decode_args(char *argv[], DecodeInfo *decInfo)	//functi
      }
      if(argv[3] == NULL)
      {
-	  strcpy(decInfo->decode_image_fname , "decode");		//default name will be provided if argv[4] is not provided
+	  strcpy(decInfo->decode_image_fname , "output");		//default name will be provided if argv[4] is not provided
      }
      else
      {
