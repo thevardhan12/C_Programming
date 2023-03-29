@@ -68,10 +68,10 @@ Status decode_magic_string(char *magic_string, DecodeInfo *decInfo)
 {
     //set the file pointer to 54 in source image
     fseek(decInfo->fptr_stego_image,54,SEEK_SET);
-    char magic_data[(strlen(magic_string)+1)];                //declare char array magic_data of size of string length of magic string +1
+    char magic_data[(strlen(MAGIC_STRING)+1)];                //declare char array magic_data of size of string length of magic string +1
 
     //call decode_data_from_image to decode magic string from the stego image
-    decode_data_from_image(magic_data,strlen(magic_string),decInfo->fptr_stego_image);
+    decode_data_from_image(magic_data,strlen(MAGIC_STRING),decInfo->fptr_stego_image);
     magic_data[strlen(magic_string)]='\0';          //assign NULL value to array
     if (strcmp(magic_data,MAGIC_STRING)==0)         //compare magic string with the decoded magic string
     {
@@ -94,7 +94,7 @@ Status decode_data_from_image(char *data, long size, FILE *fptr_stego_image)
 	fread(str,8,1,fptr_stego_image);
 
 	//call the function decode_byte_from_lsb to decode ecah character
-	decode_byte_from_lsb(&data[i],str);
+	decode_byte_from_lsb(data[i],str);
     }
 }
 
