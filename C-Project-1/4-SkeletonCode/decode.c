@@ -201,7 +201,7 @@ Status do_decoding(DecodeInfo *decInfo)
 	    printf("Decoding magic string success\n");
 
 	    //to check whether the extn size  decode or not
-	    if (decode_secret_file_extnsize(decInfo)==e_success)
+	    /*if (decode_secret_file_extnsize(decInfo)==e_success)
 	    {
 		printf("Decoding extn size success\n");
 
@@ -249,7 +249,7 @@ Status do_decoding(DecodeInfo *decInfo)
 	{
 	    printf("Decoding magic string failure\n");
 	    return e_failure;
-	}
+	}*/
     }
     else
     {

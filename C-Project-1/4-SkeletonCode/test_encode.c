@@ -1,3 +1,14 @@
+/*
+
+Name : Harshavardhana B
+Date : Mar 29 2023
+Description : Image Steganography
+
+*/
+
+
+
+
 #include <stdio.h>
 #include "encode.h"
 #include "decode.h"
