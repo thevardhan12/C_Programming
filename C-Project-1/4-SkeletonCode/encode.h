@@ -20,8 +20,7 @@ typedef struct _EncodeInfo
     char *src_image_fname;
     FILE *fptr_src_image;
     uint image_capacity;
-    
-    /*uint bits_per_pixel;*/
+    uint bits_per_pixel;
     char image_data[MAX_IMAGE_BUF_SIZE];
 
     /* Secret File Info */
@@ -38,14 +37,13 @@ typedef struct _EncodeInfo
 } EncodeInfo;
 
 
-
 /* Encoding function prototype */
 
 /* Check operation type */
 OperationType check_operation_type(char *argv[]);
 
 /* Read and validate Encode args from argv */
-Status read_and_validate_encode_args(int argc,char *argv[], EncodeInfo *encInfo);
+Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo);
 
 /* Perform the encoding */
 Status do_encoding(EncodeInfo *encInfo);
@@ -66,10 +64,13 @@ uint get_file_size(FILE *fptr);
 Status copy_bmp_header(FILE *fptr_src_image, FILE *fptr_dest_image);
 
 /* Store Magic String */
-Status encode_magic_string( char *magic_string, EncodeInfo *encInfo);
+Status encode_magic_string(char *magic_string, EncodeInfo *encInfo);
+
+/*store secret file extn size*/
+Status encode_secret_file_extnsize(int extn_size,EncodeInfo *encInfo);
 
 /* Encode secret file extenstion */
-Status encode_secret_file_extn( char *file_extn, EncodeInfo *encInfo);
+Status encode_secret_file_extn(char *file_extn, EncodeInfo *encInfo);
 
 /* Encode secret file size */
 Status encode_secret_file_size(long file_size, EncodeInfo *encInfo);
@@ -78,13 +79,15 @@ Status encode_secret_file_size(long file_size, EncodeInfo *encInfo);
 Status encode_secret_file_data(EncodeInfo *encInfo);
 
 /* Encode function, which does the real encoding */
-Status encode_data_to_image(char *data, int size, EncodeInfo *encInfo);
+Status encode_data_to_image(char *data, int size, FILE *fptr_src_image, FILE *fptr_stego_image);
 
 /* Encode a byte into LSB of image data array */
 Status encode_byte_to_lsb(char data, char *image_buffer);
 
+/*Encode a size into LSB of str array */
+Status encode_size_to_lsb (int data, char *image_buffer);
+
 /* Copy remaining image bytes from src to stego image after encoding */
-Status copy_remaining_img_data(EncodeInfo *encinfo);
-Status encode_int_to_lsb(int size,EncodeInfo *encInfo);
-Status encode_secret_file_ext_size(int size,EncodeInfo *encInfo);
+Status copy_remaining_img_data(FILE *fptr_src, FILE *fptr_dest);
+
 #endif
