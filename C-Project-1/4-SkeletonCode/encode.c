@@ -14,6 +14,7 @@ Status read_and_validate_encode_args(int argc ,char *argv[], EncodeInfo *encInfo
         if(strcmp(strstr(argv[2],"."),".bmp")==0)
         {
             encInfo->src_image_fname=argv[2];
+            
 
             
         }
@@ -121,12 +122,12 @@ Status do_encoding(EncodeInfo *encInfo)
 Status copy_remaining_img_data(EncodeInfo *encinfo)
 {
     char ch;
-    while (ch=getc(encinfo->fptr_src_image)!=EOF)
+    while ((fread(&ch,1,sizeof(char),encinfo->fptr_src_image))>0)
     {
-        putc(ch,encinfo->fptr_stego_image);
+        fwrite(&ch,1,sizeof(char),encinfo->fptr_stego_image);
         
     }
-    putc(ch,encinfo->fptr_stego_image);
+    //fwrite(ch,1,sizeof(char),encinfo->fptr_stego_image);
     return e_success;
     
 }
