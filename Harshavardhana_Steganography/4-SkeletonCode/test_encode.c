@@ -1,71 +1,89 @@
 /*
-
-Name : Harshavardhana B
+Name : 	Harshavardhana B
 Date : Mar 29 2023
-Description : Image Steganography
-
-*/
-
+Description : 
+ */
 
 #include <stdio.h>
 #include "encode.h"
 #include "decode.h"
 #include "types.h"
-#include "common.h"
+#include<string.h>
 
-int main(int argc, char *argv[])		//main function with command line arguments
+int main(int argc, char *argv[])
 {
-     int i, ret, ret1;
-     EncodeInfo encInfo;			//structure variable name
-     DecodeInfo decInfo;			//structure variable name
-     uint img_size;
-     if(argc <= 1)				//if no arguments are passed then enters inside the if condition
-     {
-	  
-	  return 0;				//if arguments are not passed in cla then terminate the program
-     }
-     ret = check_operation_type(argv);		//calling the function 
+    int option = check_operation_type(argv);                                  //call function to check the operation type                                    
+    if (option == e_encode)                                                   //if option == e_encode then select encoding                                                                         
+    {
+	printf("Selected encoding\n");                          //declare encInfo EncodeInfo structure variable                     
 
-     if(ret == e_unsupported)			//checks the condition
-     {
-	  return 0;
-     }
-     else if(ret == e_encode)
-     {
-	  ret1 = read_and_validate_encode_args(argv, &encInfo);		//calling the function
-	  if(ret1 == e_failure)			
-	  {
-	       return 0;
-	  }
-	  else
-	  {
-		
-	       do_encoding(&encInfo);		//function calling
-	  }
-     }
-     else if(ret == e_decode)
-     {
-	  printf(" Decoding is Started \n");
-	  ret1 = read_and_validate_decode_args(argv, &decInfo);		
-	  if(ret1 == e_failure)
-	  {
-	       return e_failure;
-	  }
-	  else
-	  {
-	       do_decoding(&decInfo);
-	  }
-     }
+	EncodeInfo encInfo;                                                         
+	if (read_and_validate_encode_args(argv,&encInfo) == e_success)           //call function to read and validata encode arguments
+	{
+	    printf("Read and validate arguments for encoding is success\n");
+	    if (do_encoding(&encInfo)==e_success)                               //call function to do encoding
+	    {
+		printf(" Encoding is Successfull \n");
+	    }
+	    else
+	    {
+		printf("Encoding is Failure\n");
+	    }
+	}
+	else
+	{
+	    printf("Read and validate arguments for encoding failure\n");
+	}
+    }
+    else if (option == e_decode)                                                //if option == e_decode then select decoding
+    {
+	printf("Selected decoding\n");
+	DecodeInfo decInfo;                                                     //declare decInfo DecodeInfo structure variable
+	if(read_and_validate_decode_args(argv,&decInfo) == e_success)            //call function to read and validate decode arguments
+	{
+	    printf("Read and validate arguments for decoding success\n");       
+	    if (do_decoding(&decInfo)==e_success)                                 //call function to do decoding 
+	    {
+		printf(" Decoding is Successfull \n");
+	    }
+	    else
+	    {
+		printf("Decoding secret data failure\n");
+	    }
+	}
+	else
+	{
+	    printf("Read and validate arguments for decoding failure\n");
+	}
+    }
+    else
+    {
+	printf("Please pass the valid option -e or -d\n");
+    }
+    return 0;
 }
-
-
-
-
-
-
-
-
-
+OperationType check_operation_type(char *argv[])                                   //defining function to check the operation type
+{
+    if (argv[1] != NULL)
+    {
+	if (!(strcmp(argv[1],"-e")))                                              //if argv[1] contains -e then return e_encode
+	{
+	    return e_encode;
+	}
+	else if (!(strcmp(argv[1],"-d")))                                         //if argv[1] contains -d then return e_decode
+	{
+	    return e_decode;
+	}
+	else
+	{
+	    return e_unsupported;						  //if argv[1] doesn't contain -e or -d then return e_unsupported
+	}
+    }
+    else
+    {
+	return e_unsupported;
+    }
+}
 
 
 
