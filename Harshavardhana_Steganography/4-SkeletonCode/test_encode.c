@@ -12,8 +12,8 @@ Description :
 
 int main(int argc, char *argv[])
 {
-    int option = check_operation_type(argv);                                  //call function to check the operation type                                    
-    if (option == e_encode)                                                   //if option == e_encode then select encoding                                                                         
+	//call function to check the operation type                                    
+    if (check_operation_type(argv) == e_encode)                                                   //if option == e_encode then select encoding                                                                         
     {
 	printf("Selected encoding\n");                          //declare encInfo EncodeInfo structure variable                     
 
@@ -30,12 +30,8 @@ int main(int argc, char *argv[])
 		printf("Encoding is Failure\n");
 	    }
 	}
-	else
-	{
-	    printf("Read and validate arguments for encoding failure\n");
-	}
     }
-    else if (option == e_decode)                                                //if option == e_decode then select decoding
+    else if (check_operation_type(argv) == e_decode)                                                //if option == e_decode then select decoding
     {
 	printf("Selected decoding\n");
 	DecodeInfo decInfo;                                                     //declare decInfo DecodeInfo structure variable

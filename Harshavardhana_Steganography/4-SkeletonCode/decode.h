@@ -1,7 +1,7 @@
 /*
 
-Name : Suhas N
-Date : Mar 21 2023
+Name : Harshavardhana B
+Date : Mar 29 2023
 Description : Image Steganography
 
 */
