@@ -11,11 +11,12 @@ emertxe(int id,string name)
     this->id=id;
     this->name=name;
 }
-void display()
+virtual void display()=0;/// this is pure virtual functions
+/*void display()
 {
     cout<< "id="<<id << endl;
     cout<<"name="<<name<<endl;
-}
+}*/
 };
 class students : public emertxe
 {
@@ -24,7 +25,7 @@ class students : public emertxe
     char grade;
     public:
     students(int id,string name,string course,char grade);
-    void display();
+    virtual void display();
 };
 class mentor : public emertxe
 {

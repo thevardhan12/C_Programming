@@ -33,12 +33,23 @@ mentor::mentor(int id,string name,string rank,int salary):emertxe(id,name)
 }
 int main()
 {
-    emertxe obj1(01,"Mubeen");
+    //emertxe obj1(01,"Mubeen"); dont create objectt for parent
     mentor obj2(200,"Varshith","class mentor",50000);
     students obj3(202040,"Harsha","C++",'A');
     obj1.display();        //function overriding
-    obj2.display();
-    obj3.display();
+    obj2.display();         ////function overriding
+    obj3.display();     //function overriding
+    /*emertxe *p0=new emertxe;
+    mentor *p1=new mentor;
+    students *p2=new students;
+    p0->display();
+    p1->display();
+    p2->display();*/
+
+
+/// dynamic linnking (or)
+///late  binding is acheived by virtual keyword to get a runtime polymorphism.
+
 
 
 }
