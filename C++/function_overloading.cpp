@@ -10,16 +10,11 @@ public:
     function_overloading(int a,int b);
     void display();
 };
-class function
-{
-    
-}
-
 function_overloading::function_overloading(int a,int b)
 {
+    this->a=a;
+    this->b=b;
 
 }
 
-function_overloading::~function_overloading()
-{
-}
+
