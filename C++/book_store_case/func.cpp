@@ -1,6 +1,7 @@
 #include<iostream>
 #include"sales_item.h"
-sales_item::sales_item(std::string x,int price,int avail)
+//using namespace std;
+sales_item::sales_item(std::string &x,int price,int avail)
 {
     Book_name=x;
     Book_price=price;
@@ -14,6 +15,9 @@ void sales_item::display(void)
 }
 int main()
 {
-    sales_item book("Flying wingss",500,3);
+    std::string b_name;
+    std::getline(std::cin,b_name);
+    sales_item book(b_name,500,3);
     book.display();
+    return 0;
 }
