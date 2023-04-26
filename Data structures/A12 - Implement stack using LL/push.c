@@ -21,11 +21,8 @@ int Push(Stack_t **top, data_t data)
     }
     else
     {
-        while (temp->link!=NULL)                    //run loop untill node of link finds null
-        {
-            temp=temp->link                 
-        }
-        temp->link=new;
+        new->link=*top;
+        *top=new;
         return SUCCESS;
 
     }

@@ -10,12 +10,7 @@ int Peek(Stack_t **top)
     }
     else
     {
-        while (temp->link!=NULL)   //run temp upto null and update the temp the value
-        {
-            temp=temp->link;
-        }
-        int res=temp->data;///////return the top most data value
-        return res;
+        
         
 
     }

@@ -10,13 +10,10 @@ int Pop(Stack_t **top)
     }
     else
     {
-        while (temp->link!=NULL )   //run the loop untill the NULL
-        {
-            pre=temp;                       //update the temp pointer values
-            temp=temp->link;
-        }
-        free(temp);                             //free the node 
-        pre->link=NULL;
+        Stack_t *temp;
+        temp=*top;
+        *top=temp->link;
+        free(temp);
         return SUCCESS;
 
     }
