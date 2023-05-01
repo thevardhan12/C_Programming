@@ -3,9 +3,18 @@
 /* Function to Insert the element */
 int enqueue(Queue_t *q, int data)
 {
-    if(IsQueueEmpty(q)==SUCCESS)
+    if(IsQueueFull(q)==FAILURE)
     {
-        return 
+        return FAILURE;
+        
+    }
+    else
+    {
+        q->rear=(q->rear+1)%(q->capacity);
+        q->Que[q->rear]=data;
+        q->count++;
+        return SUCCESS;
+        
     }
 
 }

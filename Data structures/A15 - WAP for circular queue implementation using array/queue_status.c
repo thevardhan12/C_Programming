@@ -2,20 +2,22 @@
 
 int IsQueueFull(Queue_t *q)
 {
-    if(q->count!=0)
+    if(q->count==q->capacity)
     {
-        return SUCCESS;
+        return FAILURE;
     }
-    
+    else
+    return SUCCESS;
 }
 
 int IsQueueEmpty(Queue_t *q)
 {
-    if(q->count!=0)
+    if(q->count==0)
     {
-        return SUCCESS;
+        return FAILURE;
     }
-    else
-    return FAILURE;
+    else   
+    return SUCCESS;
+   
    
 }

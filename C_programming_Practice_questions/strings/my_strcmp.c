@@ -6,6 +6,9 @@ Sample input:
 Sample output:
 */
 #include<stdio.h>
+
+#include<string.h>
+#include<ctype.h>
 int my_strcmp(char *str1, char *str2);
 int main()
 {
@@ -36,10 +39,10 @@ int my_strcmp(char *str1, char *str2)
 
      for(int i=0;str1[i]!=0;i++)
      {
-	  ret=str1[i]-str2[i];
+	  ret=toupper(str1[i])-toupper(str2[i]);
 	  if(ret)
 	  {
-	       return ret;
+	     return ret;
 	  }
 
      }
