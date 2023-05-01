@@ -11,7 +11,18 @@
 *******************************************************************************************************************************************************************/
 #include "apc.h"
 
-int addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR)
+int addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR,Dlist**tailr,char *argv[])
 {
+	int flag1=0,flag2=0;
 	/* Definition goes here */
+	if (argv[1][0]=='-'&&argv[3][0]=="-")
+	{
+		flag1=1;
+		flag2=1;
+
+		
+	}
+	
+
+
 }

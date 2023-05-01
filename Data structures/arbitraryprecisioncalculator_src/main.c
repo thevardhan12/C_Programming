@@ -60,7 +60,12 @@ int main(int argc,char *argv[])
 			{
 				case '+':
 				/* call the function to perform the addition operation */
-				printf("Next is addition process\n");
+				//printf("Next is addition process\n");
+				if(addition(&head1,&tail1,&head2,&tail2,&headR,&tailr,argv)==SUCCESS)
+				{
+					printf("Addition is succeesfull\n");
+					print_list(&headR,&tailr);
+				}
 					break;
 				case '-':	
 				/* call the function to perform the subtraction operation */
