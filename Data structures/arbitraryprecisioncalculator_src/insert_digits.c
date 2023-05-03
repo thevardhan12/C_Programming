@@ -3,14 +3,22 @@
 int insert_digits(Dlist **head,Dlist **tail,char *op)
 {
     int data;
+   
     for (int i = 0;op[i]!=0; i++)
     {
-        data=op[i]-48;
-        if(insert_last(head,tail,data)==FAILURE)
+        if(op[i]>='0'&&op[i]<='9')
         {
-            printf("ERROR:node is not created\n");
-            return FAILURE;
+             data=op[i]-48;
+            if(insert_last(head,tail,data)==FAILURE)
+            {
+              printf("ERROR:node is not created\n");
+                return FAILURE;
+            }
+
         }
+       
+        
+
         
     }
     return SUCCESS;
