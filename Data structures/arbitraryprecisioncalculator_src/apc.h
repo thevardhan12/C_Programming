@@ -27,3 +27,4 @@ int operand(char *argv[],char *,char *,int);
 int insert_digits(Dlist **head,Dlist **tail,char *op);
 int insert_last(Dlist **head,Dlist **tail,int data);
 void print_list(Dlist **head,Dlist **tail);
+int check_signs(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2,char *argv[]);

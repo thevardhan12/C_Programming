@@ -115,3 +115,49 @@ int operand(char *argv[],char *op1, char *op2, int argc)
 
 
 }
+int check_signs(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2,char *argv[])
+{
+	int count1=0;
+	int count2=0;
+	int head1=0,head2=0;
+	Dlist *temp=*head1;
+	Dlist *temp2=*head2;
+	while (temp!=NULL)
+	{
+		count++;
+		temp=temp->next;
+	}
+	count1=count1+1;
+	while (temp2!=NULL)
+	{
+		count2++;
+		temp2=temp2->next;
+	}
+	count2=count2+1;
+	temp=*head1;
+	temp2=*head2;
+	if(count1=count2)
+	{
+		while (temp!=NULL && temp2!=NULL)
+		{
+			if(temp->data >temp2->data)
+			{
+				printf("the 1st operand is bigger value\n")
+				break;
+			}
+			else if(temp->data <temp2->data)
+			{
+
+
+			}
+
+			
+		}
+		return 
+		
+
+	}
+	
+	
+
+}

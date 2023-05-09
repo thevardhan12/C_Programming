@@ -11,7 +11,7 @@ int insert_digits(Dlist **head,Dlist **tail,char *op)
              data=op[i]-48;
             if(insert_last(head,tail,data)==FAILURE)
             {
-              printf("ERROR:node is not created\n");
+                printf("ERROR:node is not created\n");
                 return FAILURE;
             }
 
