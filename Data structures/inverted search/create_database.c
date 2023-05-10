@@ -38,23 +38,62 @@ status create_database(mainnode *hash_table[],Slist **head)
                 }
                 else
                 {
-                    mainnode *temp;
+                    mainnode *temp1;
                     subnode *prev;
-                    temp=hash_table[index];
-                    prev=temp->sub_address;
-                    while(temp!=NULL)
+                    temp1=hash_table[index];
+                    prev=temp1->sub_address;
+                    while(temp1!=NULL)
                     {
                         if(strcmp(temp->word,buffer)==0)
                         {
-                            prev->word_count++;
-                            
-                           
+                            while(prev!=NULL)
+                            {
+                                if(strcmp(temp->filename,prev->file_name)==0)
+                                {
+                                    prev->word_count++;
+
+                                }
+                                else
+                                {
+                                    subnode *s_node=malloc(sizeof(subnode));
+                                    if(s_node==NULL)
+                                    {
+                                        printf("ERROR \n");
+                                    }
+                                    else
+                                    {
+                                        strcpy(s_node->file_name,temp->filename);
+                                        s_node->next=NULL;
+                                        temp1->file_count++;
+                                    }
+                                }
+                                prev=prev->next;
+
+                            }
 
                         }
                         else
                         {
-                            prev
-                            temp=temp->next;
+                            mainnode *m_node=malloc(sizeof(mainnode));
+                            subnode *s_node=malloc(sizeof(subnode));
+
+                            if(m_node==NULL)
+                            {
+                                return e_failure;
+                            }
+                            else
+                            {
+                                strcpy(m_node->word,buffer);
+                                m_node->sub_address=NULL;
+                                m_node->file_count=1;
+                                m_node->next=NULL;
+                                strcpy(s_node->file_name,temp->filename);
+                                s_node->word_count=1;
+                                s_node->next=NULL;
+                                m_node->sub_address=s_node;
+                            }
+                            prev->next=m_node;
+
 
                         }
                     }
