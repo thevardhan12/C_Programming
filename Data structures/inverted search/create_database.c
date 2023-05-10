@@ -41,9 +41,9 @@ status create_database(mainnode *hash_table[],Slist **head)
                     mainnode *temp1;
                     subnode *prev;
                     temp1=hash_table[index];
-                    prev=temp1->sub_address;
                     while(temp1!=NULL)
                     {
+                        prev=temp1->sub_address;
                         if(strcmp(temp->word,buffer)==0)
                         {
                             while(prev!=NULL)
@@ -96,11 +96,14 @@ status create_database(mainnode *hash_table[],Slist **head)
 
 
                         }
+                        temp1=temp1->next;
+                        
                     }
 
                 }
             }
 
         }
+        temp=temp->link;
     }
 }
