@@ -16,23 +16,16 @@ status read_and_validation(int argc,char *argv[],Slist **head)
             if(fptr==NULL)
             {
                 printf("ERROR %s file is not exist\n",argv[i]);
-                //fclose(fptr);
+                fclose(fptr);
                 continue;
             }
-            /*else
-            {
-                printf("%s\n",argv[i]);
-            }*/
             if(strcmp((strstr(argv[i],".")),".txt")!=0)
             {
                 printf("ERROR %s file is not a TEXT FILE\n",argv[i]);
                 fclose(fptr);
                 continue;
             }
-            /*else
-            {
-                printf("%s\n",argv[i]);
-            }*/
+          /
             fseek(fptr,0,SEEK_END);
             if(ftell(fptr)==0)
             {
@@ -44,20 +37,23 @@ status read_and_validation(int argc,char *argv[],Slist **head)
             {
                 printf("the file %s is inserted successfully\n",argv[i]);
                 fclose(fptr);
-                //return e_sucess;
+                continue;
+                
             }
             else if(insert_at_last(head,argv[i])==unsupported)
             {
                 printf(" the file %s is already existed \n",argv[i]);
                 fclose(fptr);
+                continue;
 
-                //return e_sucess;
+                
             }
             else
             {
                 printf("insertion of file %s is unsuccessfully\n",argv[i]);
-                return e_failure;
-
+                fclose(fptr);
+                continue;
+                
             }
             
         }

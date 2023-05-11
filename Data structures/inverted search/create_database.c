@@ -1,21 +1,23 @@
 #include"hash.h"
 status create_database(mainnode *hash_table[],Slist **head)
 {
+    FILE *fptr;
+    //take first file in temp
     int index=0;
     Slist *temp=*head;
-    while(temp)
+    while(temp)//run the loop until the temp reach null
     {
-        FILE *fptr=fopen(temp->filename,"r");
-        if(fopen==NULL)
+        fptr=fopen(temp->filename,"r");//open the file
+        if(fptr==NULL)
         {
-            return n e_failure;
+            return  e_failure;     
         }
         else
         {
-            while(fscanf(buffer,"%s",fptr)!=EOF)
+            while(fscanf(buffer,"%s",fptr)!=EOF)//fetch each word from the file
             {
-                index=tolower(buffer[0])%97;
-                if(hash_table[index]==NULL)
+                index=tolower(buffer[0])%97;         //find the index of that word
+                if(hash_table[index]==NULL)             //if the node is 
                 {
                     mainnode *m_node=malloc(sizeof(mainnode));
                     subnode *s_node=malloc(sizeof(subnode));
@@ -26,7 +28,7 @@ status create_database(mainnode *hash_table[],Slist **head)
                     else
                     {
                         strcpy(m_node->word,buffer);
-                        m_node->sub_address=NULL;
+                       // m_node->sub_address=NULL;
                         m_node->file_count=1;
                         m_node->next=NULL;
                         strcpy(s_node->file_name,temp->filename);
@@ -39,12 +41,14 @@ status create_database(mainnode *hash_table[],Slist **head)
                 else
                 {
                     mainnode *temp1;
+                    mainnode *p_temp1;
                     subnode *prev;
+                    subnode *p_prev;
                     temp1=hash_table[index];
                     while(temp1!=NULL)
                     {
                         prev=temp1->sub_address;
-                        if(strcmp(temp->word,buffer)==0)
+                        if(strcmp(temp1->word,buffer)==0)
                         {
                             while(prev!=NULL)
                             {
@@ -55,7 +59,15 @@ status create_database(mainnode *hash_table[],Slist **head)
                                 }
                                 else
                                 {
-                                    subnode *s_node=malloc(sizeof(subnode));
+                                    p_prev = prev;
+                                     prev=prev->next;
+                                    
+                                }
+
+                            }
+                            if( prev == NULL )
+                            {
+                                subnode *s_node=malloc(sizeof(subnode));
                                     if(s_node==NULL)
                                     {
                                         printf("ERROR \n");
@@ -66,15 +78,22 @@ status create_database(mainnode *hash_table[],Slist **head)
                                         s_node->next=NULL;
                                         temp1->file_count++;
                                     }
-                                }
-                                prev=prev->next;
-
+                                    p_prev->next=s_node;
+                                    //return e_sucess;
                             }
 
                         }
                         else
                         {
-                            mainnode *m_node=malloc(sizeof(mainnode));
+                            p_temp1 = temp1;
+                             temp1=temp1->next;
+                          
+                        }
+                        
+                    }
+                    if( temp1 == NULL )
+                    {
+                          mainnode *m_node=malloc(sizeof(mainnode));
                             subnode *s_node=malloc(sizeof(subnode));
 
                             if(m_node==NULL)
@@ -84,7 +103,7 @@ status create_database(mainnode *hash_table[],Slist **head)
                             else
                             {
                                 strcpy(m_node->word,buffer);
-                                m_node->sub_address=NULL;
+                              //  m_node->sub_address=NULL;
                                 m_node->file_count=1;
                                 m_node->next=NULL;
                                 strcpy(s_node->file_name,temp->filename);
@@ -92,12 +111,7 @@ status create_database(mainnode *hash_table[],Slist **head)
                                 s_node->next=NULL;
                                 m_node->sub_address=s_node;
                             }
-                            prev->next=m_node;
-
-
-                        }
-                        temp1=temp1->next;
-                        
+                            p_temp1 = m_node;
                     }
 
                 }
@@ -105,5 +119,7 @@ status create_database(mainnode *hash_table[],Slist **head)
 
         }
         temp=temp->link;
+        fclose(fptr);
     }
+    return e_sucess;
 }
