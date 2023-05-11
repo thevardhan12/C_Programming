@@ -14,7 +14,7 @@ status create_database(mainnode *hash_table[],Slist **head)
         }
         else
         {
-            while(fscanf(buffer,"%s",fptr)!=EOF)//fetch each word from the file
+            while(fscanf(fptr,"%s",buffer)!=EOF)  //fetch each word from the file
             {
                 index=tolower(buffer[0])%97;         //find the index of that word
                 if(hash_table[index]==NULL)             //if the node is 
@@ -85,7 +85,7 @@ status create_database(mainnode *hash_table[],Slist **head)
                         }
                         else
                         {
-                            p_temp1 = temp1;
+                             p_temp1 = temp1;
                              temp1=temp1->next;
                           
                         }
@@ -93,7 +93,7 @@ status create_database(mainnode *hash_table[],Slist **head)
                     }
                     if( temp1 == NULL )
                     {
-                          mainnode *m_node=malloc(sizeof(mainnode));
+                            mainnode *m_node=malloc(sizeof(mainnode));
                             subnode *s_node=malloc(sizeof(subnode));
 
                             if(m_node==NULL)

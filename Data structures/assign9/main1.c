@@ -1,6 +1,9 @@
 #include"hash.h"
 int main(int argc,char *argv[])
-{    
+{
+
+
+    
     int choice ;
     mainnode *hash_table[SIZE]={NULL};
 
@@ -15,9 +18,12 @@ int main(int argc,char *argv[])
     {
     printf("VALIDATION completed succesfully\n ");
     print_list(head);
-    printf("1.Create Database\n 2.Display Database\n 3.Search Database\n 4.Save Database\n 5.Update Database\n 6.EXIT\n");
     while (1)
     {
+
+
+
+        printf("1.Create Database\n 2.Display Database\n 3.Search Database\n 4.Save Database\n 5.Update Database\n 6.EXIT\n");
         printf("select the function\n");
         scanf("%d",&choice);
         switch(choice)
@@ -40,18 +46,6 @@ int main(int argc,char *argv[])
             else
             {
                 printf("ERROR !!!!! in dispalying of database\n");
-            }
-            break;
-            case 3:
-            printf("enter the string\n");
-            scanf("%s",data);
-            if(search_data(hash_table,data)==e_sucess)
-            {
-                printf("DATA found\n");
-            }
-            else
-            {
-                printf("data not found\n");
             }
             break;
             case 6:

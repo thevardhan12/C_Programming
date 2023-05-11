@@ -2,9 +2,11 @@
 #include<string.h>
 #include<stdlib.h>
 #include<ctype.h>
+#include<unistd.h>
 
 #define SIZE 27
 char buffer[100];
+char data[100];
 
 typedef enum{
     e_sucess,
@@ -43,4 +45,7 @@ FILE *fptr;
 status read_and_validation(int argc,char *argv[],Slist **head);
 status insert_at_last(Slist **head,char *argv);
 void print_list(Slist *head);
-status create_database( );
+status create_database(mainnode *hash_table[],Slist **head);
+status display_database(mainnode *hash_table[]);
+void print_word(mainnode *);
+status search_data(mainnode *head[],char *data);

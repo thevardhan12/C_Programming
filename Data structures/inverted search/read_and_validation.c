@@ -25,7 +25,7 @@ status read_and_validation(int argc,char *argv[],Slist **head)
                 fclose(fptr);
                 continue;
             }
-          /
+          
             fseek(fptr,0,SEEK_END);
             if(ftell(fptr)==0)
             {

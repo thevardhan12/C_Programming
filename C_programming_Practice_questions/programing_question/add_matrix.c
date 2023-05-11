@@ -61,7 +61,7 @@ void read_values(int *mat[ROW])
 }
 void add_matrix(int *mat1[ROW],int *mat2[ROW],int *sum[ROW])
 {
-     for (int  i = 0; i < ROW; i++)
+    for (int  i = 0; i < ROW; i++)
     {
         for (int j = 0; j < COl; j++)
         {
