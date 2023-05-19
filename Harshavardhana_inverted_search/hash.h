@@ -14,6 +14,7 @@ typedef enum{
     e_failure,
     unsupported
 }status;
+
 typedef struct list
 {
     char filename[20];
@@ -50,4 +51,5 @@ status create_database(mainnode *hash_table[],Slist **head);
 status display_database(mainnode *hash_table[]);
 void print_word(mainnode *);
 status search_data(mainnode *head[],char *data);
-status save_database();
+status save_database(mainnode *hash_T[]);
+status update_database(mainnode *hash_T[],char *);
