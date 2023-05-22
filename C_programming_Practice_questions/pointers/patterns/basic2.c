@@ -6,7 +6,8 @@ Sample input:
 Sample output:
 */
 #include<stdio.h>
-int main()
+int ma  + -                                 left to right
+in()
 {
 
      int n;
