@@ -1,6 +1,6 @@
 
 #include<stdio.h>
-void insertion(int *arr,int);
+void insertion(int *arr,int,int);
 int main()
 {
     int size,item;
@@ -31,8 +31,9 @@ void insertion(int *arr,int n,int item)
             arr[i+1]=arr[i];
             arr[i+1]=item;
         }
-            }}        }
-        
+    
     }
+        
+    
     
 }

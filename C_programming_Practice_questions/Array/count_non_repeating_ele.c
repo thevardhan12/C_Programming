@@ -6,7 +6,7 @@ int main()
     int *arr=calloc(size,sizeof(int));
     for(int i=0;i<size;i++)
     {
-        scanf("%d",&arr);
+        scanf("%d",&arr[i]);
 
     }
     printf("%d\n",count(arr));
